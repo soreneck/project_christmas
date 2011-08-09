@@ -1,4 +1,7 @@
 ProjectChristmas::Application.routes.draw do
+  get "pages/about"
+  get "pages/contact"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
