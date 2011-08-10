@@ -3,6 +3,10 @@ require 'spec_helper'
 describe PagesController do
   render_views
 
+  before(:each) do
+    @base_title = "Project Christmas"
+  end
+
   describe "GET 'about'" do
     it "should be successful" do
       get 'about'
@@ -12,7 +16,7 @@ describe PagesController do
     it "should display about on title" do
       get 'about'
       response.should have_selector("title",
-                        :content => "Project Christmas | About")
+                        :content => @base_title + " | About")
     end    
     
   end
@@ -25,7 +29,7 @@ describe PagesController do
     
     it "should display about on title" do
       get 'contact'
-      response.should have_selector("title", :content => "Project Christmas | Contact")
+      response.should have_selector("title", :content => @base_title + " | Contact")
     end    
   end
 
