@@ -15,8 +15,7 @@ describe PagesController do
     
     it "should display about on title" do
       get 'about'
-      response.should have_selector("title",
-                        :content => @base_title + " | About")
+      response.should have_selector("title", :content => "#{@base_title} | About")
     end    
     
   end
@@ -29,7 +28,7 @@ describe PagesController do
     
     it "should display about on title" do
       get 'contact'
-      response.should have_selector("title", :content => @base_title + " | Contact")
+      response.should have_selector("title", :content => "#{@base_title} | Contact")
     end    
   end
 
