@@ -18,6 +18,11 @@ describe PagesController do
       response.should have_selector("title", :content => "#{@base_title} | About")
     end    
     
+    it "should have a non blank body" do
+      get 'about'
+      response.body.should_not =~ /<body>\s*<\/body>/
+    end
+    
   end
 
   describe "GET 'contact'" do
@@ -29,7 +34,12 @@ describe PagesController do
     it "should display about on title" do
       get 'contact'
       response.should have_selector("title", :content => "#{@base_title} | Contact")
-    end    
+    end  
+    
+    it "should have a non blank body" do
+      get 'contact'
+      response.body.should_not =~ /<body>\s*<\/body>/
+    end  
   end
 
 end
