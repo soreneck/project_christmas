@@ -9,4 +9,8 @@ module ApplicationHelper
     end
   end
   
+  def logo
+    image_tag("logo.gif", :alt => "Project Christmas", :class => "round")
+  end
+  
 end

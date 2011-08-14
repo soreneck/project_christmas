@@ -24,4 +24,12 @@ describe ApplicationHelper do
     end
   end
   
+  # describe "logo" do
+  #   it "should return logo image tag" do
+  #     helper.logo.should have_selector("img", :alt => "Project Christmas", 
+  #                                             :class => "round",
+  #                                             :src => "/images/logo.gif")
+  #   end
+  # end
+  
 end

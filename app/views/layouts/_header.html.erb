@@ -1,11 +1,11 @@
 <header>
 	<div class="container">
-		<%= image_tag("logo.gif", :alt => "Project Christmas",  :class => "round") %>
+		<%= link_to logo, root_path %>
 		<nav>
 			<ul>
 				<li><%= link_to "Sign in", '#' %></li>
-				<li><%= link_to "Contact", '#' %></li>
-				<li><%= link_to "About", '#' %></li>
+				<li><%= link_to "Contact", contact_path %></li>
+				<li><%= link_to "About", about_path %></li>
 			</ul>
 		</nav>
 	</div>
