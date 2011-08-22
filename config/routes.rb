@@ -1,6 +1,11 @@
 ProjectChristmas::Application.routes.draw do
   root :to => "pages#home"
   
+  # Example: match '/about' also created both routes below
+  # Hence we can use about_path with the link_to tag!
+  # about_path => '/about'
+  # about_url  => 'http://localhost:3000/about'
+  
   match '/contact', :to => 'pages#contact'
   match '/about', :to => 'pages#about'
   
