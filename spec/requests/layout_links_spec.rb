@@ -24,11 +24,17 @@ describe "LayoutLinks" do
   
   it "should have the right links on layouts" do
     visit root_path
+    response.should have_selector 'a[href="/"]>img'
     
-    click_link 'About'
-    response.should have_selector('title', :content => "About")
+    click_link 'Sign up now!'
+    response.should have_selector('title', :content => 'Sign up')
     
-    click_link 'Contact'
-    response.should have_selector('title', :content => "Contact")
+    verifyLinkExist 'About'
+    verifyLinkExist 'Contact'
   end
+end
+
+def verifyLinkExist(title)
+  click_link title
+  response.should have_selector('title', :content => title)
 end
