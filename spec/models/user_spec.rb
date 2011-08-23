@@ -30,6 +30,12 @@ describe User do
     no_email_user = User.new(@attr.merge(:email => ""))
     no_email_user.should_not be_valid
   end
+
+  it "should accept name that is just right" do
+    long_name = "a" * 150
+    long_name_user = User.new(@attr.merge(:name => long_name))
+    long_name_user.should be_valid
+  end
   
   it "should reject name that is too long - 200 max" do
     long_name = "a" * 201
