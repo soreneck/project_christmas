@@ -39,4 +39,5 @@ end
 def verifyLinkWorks(title)
   click_link title
   response.should have_selector('title', :content => title)
+  response.should have_selector 'a[href="/"]>img' # logo links back to '/'
 end
