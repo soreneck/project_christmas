@@ -56,17 +56,17 @@ section h1 {
 
 /* Links */
 
-a {
+nav a {
 	color: white;
 	text-decoration: none;
 }
 
-a:hover {
+nav a:hover {
 	color: white;
 	text-decoration: underline;
 }
 
-a:visited {
+nav a:visited {
 	color: white;
 }
 
