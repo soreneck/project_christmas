@@ -31,12 +31,12 @@ describe "LayoutLinks" do
   
   it "should have the right links on layouts" do
     visit root_path
-    verifyLinkExist 'About'
-    verifyLinkExist 'Contact'
+    verifyLinkWorks 'About'
+    verifyLinkWorks 'Contact'
   end
 end
 
-def verifyLinkExist(title)
+def verifyLinkWorks(title)
   click_link title
   response.should have_selector('title', :content => title)
 end
