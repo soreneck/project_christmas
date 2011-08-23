@@ -24,7 +24,7 @@ describe "LayoutLinks" do
   
   it "should have a 'Sign up now!' link that works" do
     get '/'
-    click_link 'Sign up now!'
+    click_link 'Sign up now!' 
     response.should have_selector('title', :content => 'Sign up')
     response.should have_selector 'a[href="/"]>img' # logo links back to '/'
   end
