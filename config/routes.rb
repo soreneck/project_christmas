@@ -1,6 +1,6 @@
 ProjectChristmas::Application.routes.draw do
-  get "users/new"
-
+  resources :users
+  
   root :to => "pages#home"
   
   # Example: match '/about' also created both routes below
