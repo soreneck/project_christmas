@@ -8,6 +8,7 @@
 #  created_at         :datetime
 #  updated_at         :datetime
 #  encrypted_password :string(255)
+#  salt               :string(255)
 #
 
 # The attr_accessor :name, :email is all done by ActiveRecord by looking at the
@@ -34,6 +35,12 @@ class User < ActiveRecord::Base
                        :length       => { :within => 6..40 }       
                        
   before_save :encrypt_password
+
+  def self.authenticate(email, submitted_password)
+    user = find_by_email(email)
+    return nil if user.nil?
+    return user if user.has_password?(submitted_password)
+  end
   
   # Return true if the user's password matches the submitted password.
   def has_password?(submitted_password)
