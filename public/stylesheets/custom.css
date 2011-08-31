@@ -143,3 +143,8 @@ td.sidebar {
   border: 1px solid #999;
   margin-bottom: -15px;
 }
+
+/* User sign in page */
+div.field, div.actions {
+  margin-bottom: 10px;
+}
