@@ -1,7 +1,10 @@
 module ApplicationHelper
   
+  def base_title
+    "Booroos"
+  end
+  
   def title
-    base_title = "Buru"
     if @title.nil?
       base_title
     else
@@ -10,7 +13,7 @@ module ApplicationHelper
   end
   
   def logo
-    image_tag("logo.gif", :alt => "Buru", :class => "round")
+    image_tag("logo.gif", :alt => base_title, :class => "round")
   end
   
 end

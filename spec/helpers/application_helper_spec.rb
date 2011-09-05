@@ -15,12 +15,12 @@ describe ApplicationHelper do
   
   describe "title" do
     it "should return base title if view title is missing" do
-      helper.title.should == "Buru"
+      helper.title.should == "Booroos"
     end
 
     it "should return base title with view title if available" do
       @title = "Sample"
-      helper.title.should == "Buru | Sample"
+      helper.title.should == "Booroos | Sample"
     end
   end
   
