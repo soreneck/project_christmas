@@ -29,8 +29,14 @@ describe "LayoutLinks" do
     response.should have_selector 'a[href="/"]>img' # logo links back to '/'
   end
   
+  it "should have a sign in page at '/signin'" do
+    get '/signin'
+    response.should have_selector("title", :content => "Sign in")
+  end
+  
   it "should have the right links on layouts" do
     visit root_path
+    verifyLinkWorks 'Sign in'
     verifyLinkWorks 'About'
     verifyLinkWorks 'Contact'
   end
