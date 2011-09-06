@@ -7,6 +7,9 @@
 
 #292929 - dark grey
 #45C19F - green
+
+#15497F - dark blue
+#4E94C8 - light blue
 */
 
 body {
@@ -19,13 +22,13 @@ header {
 	    linear,
 	    left bottom,
 	    left top,
-	    color-stop(0.26, #FF6800),
-	    color-stop(0.74, #CF4800)
+	    color-stop(0.26, #4E94C8),
+	    color-stop(0.74, #15497F)
 	);
 	background-image: -moz-linear-gradient(
 	    center bottom,
-	    #FF6800 26%,
-	    #CF4800 74%
+	    #4E94C8 26%,
+	    #15497F 74%
 	);
 }
 
@@ -191,8 +194,8 @@ div.field, div.actions {
   list-style: square;
 }
 
-/* Buttons */
-.actionButton {
+/* Buttons styled links */
+.actionLinkButton {
 	font-size: 13px;
 	background: #690 url(/images/btn-overlay.png) repeat-x;
 	display: inline-block;
@@ -214,7 +217,7 @@ div.field, div.actions {
 	cursor: pointer;
 }
 
-.actionButton:hover {
+.actionLinkButton:hover {
 	background-color: #7C0;
 	color: white;
 }
