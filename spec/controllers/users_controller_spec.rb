@@ -15,6 +15,27 @@ describe UsersController do
       # have_selector does a contain "Sign up" in title
       response.should have_selector("title", :content => "Sign up")
     end
+    
+    it "should have the name field" do
+      get :new
+      response.should have_selector("input[name='user[name]'][type='text']")
+    end
+
+    it "should have an email field" do
+      get :new
+      response.should have_selector("input[name='user[email]'][type='text']")
+    end
+
+    it "should have a password field" do
+      get :new
+      response.should have_selector("input[name='user[password]'][type='password']")
+    end
+
+    it "should have a confirmation field" do
+      get :new
+      input = "input[name='user[password_confirmation]'][type='password']"
+      response.should have_selector(input)
+    end
   end
 
   describe "GET 'show'" do
@@ -120,6 +141,27 @@ describe UsersController do
       get :edit, :id => @user
       response.should have_selector("title", :content => "Edit user")
     end
+    
+    it "should have the name field" do
+      get :new
+      response.should have_selector("input[name='user[name]'][type='text']")
+    end
+
+    it "should have an email field" do
+      get :new
+      response.should have_selector("input[name='user[email]'][type='text']")
+    end
+
+    it "should have a password field" do
+      get :new
+      response.should have_selector("input[name='user[password]'][type='password']")
+    end
+
+    it "should have a confirmation field" do
+      get :new
+      input = "input[name='user[password_confirmation]'][type='password']"
+      response.should have_selector(input)
+    end    
     
     it "should have a link to change the gravatar" do
       get :edit, :id => @user

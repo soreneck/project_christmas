@@ -39,6 +39,11 @@ describe "LayoutLinks" do
     response.should_not have_selector("a", :content => "Profile")
   end
   
+  it "should not have a settings link" do
+    visit root_path
+    response.should_not have_selector("a", :content => "Settings")
+  end
+  
   it "should have the right links on layouts" do
     visit root_path
     verifyLinkWorks 'Sign in'
