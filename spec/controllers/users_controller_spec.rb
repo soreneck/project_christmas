@@ -195,7 +195,27 @@ describe UsersController do
     end
     
     describe "success" do
+      before(:each) do
+        @attr = { :name => "New User", :email => "user@example.org",
+                  :password => "foobar", :password_confirmation => "foobar" }
+      end
       
+      it "should change the user's attributes" do
+        put :update, :id => @user, :user => @attr
+        @user.reload
+        @user.name.should  == @attr[:name]
+        @user.email.should == @attr[:email]
+      end
+
+      it "should redirect to the user show page" do
+        put :update, :id => @user, :user => @attr
+        response.should redirect_to(user_path(@user))
+      end
+
+      it "should have a flash message" do
+        put :update, :id => @user, :user => @attr
+        flash[:success].should =~ /updated/
+      end
     end
   end
 end

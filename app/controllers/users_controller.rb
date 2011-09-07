@@ -28,6 +28,17 @@ class UsersController < ApplicationController
     @title = "Edit user"
   end
 
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(params[:user])
+      flash[:success] = "Profile updated."
+      redirect_to @user
+    else
+      @title = "Edit user"
+      render 'edit'
+    end
+  end
+  
   private
   
   def sign_up_title
