@@ -17,7 +17,8 @@ describe SessionsController do
     
     it "should have a link for new user signup" do
       get :new
-      response.should have_selector 'a[href="/signup"]'
+      # response.should have_selector 'a[href="/signup"]'
+      response.should have_selector("a", :href => signup_path, :content => "Sign up")
     end
   end
   

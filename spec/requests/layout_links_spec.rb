@@ -34,11 +34,37 @@ describe "LayoutLinks" do
     response.should have_selector("title", :content => "Sign in")
   end
   
+  it "should not have a profile link" do
+    visit root_path
+    response.should_not have_selector("a", :content => "Profile")
+  end
+  
   it "should have the right links on layouts" do
     visit root_path
     verifyLinkWorks 'Sign in'
     verifyLinkWorks 'About'
     verifyLinkWorks 'Contact'
+  end
+  
+  describe "when signed in" do
+    
+    before(:each) do
+      @user = Factory(:user)
+      visit signin_path
+      fill_in :email, :with => @user.email
+      fill_in :password, :with => @user.password
+      click_button
+    end
+    
+    it "should have a sign out link" do
+      visit root_path
+      response.should have_selector("a", :href => signout_path, :content => "Sign out")
+    end
+    
+    it "should have a profile link" do
+      visit root_path
+      response.should have_selector("a", :href => user_path(@user), :content => "Profile")
+    end
   end
 end
 
