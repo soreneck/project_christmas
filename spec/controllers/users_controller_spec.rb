@@ -169,4 +169,33 @@ describe UsersController do
       response.should have_selector("a", :href => gravatar_url, :content => "change")
     end
   end
+
+  describe "PUT 'update'" do
+    
+    before(:each) do
+      @user = Factory(:user)
+      test_sign_in(@user)
+    end
+    
+    describe "failure" do
+      before(:each) do
+        @attr = { :email => "", :name => "", :password => "",
+                  :password_confirmation => "" }
+      end
+      
+      it "should render the 'edit' page" do
+        put :update, :id => @user, :user => @attr
+        response.should render_template('edit')
+      end
+
+      it "should have the right title" do
+        put :update, :id => @user, :user => @attr
+        response.should have_selector("title", :content => "Edit user")
+      end      
+    end
+    
+    describe "success" do
+      
+    end
+  end
 end
