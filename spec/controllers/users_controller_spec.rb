@@ -42,6 +42,7 @@ describe UsersController do
     
     before(:each) do
       @user = Factory(:user)
+      test_sign_in(@user)
     end
     
     it "should be successful" do
@@ -215,6 +216,29 @@ describe UsersController do
       it "should have a flash message" do
         put :update, :id => @user, :user => @attr
         flash[:success].should =~ /updated/
+      end
+    end
+  end
+
+  describe "authentication of show/edit/update pages" do
+    before(:each) do
+      @user = Factory(:user)
+    end
+    
+    describe "for non signed in users" do
+      it "should deny access to 'show'" do
+        get :show, :id => @user
+        response.should redirect_to(signin_path)
+      end
+      
+      it "should deny access to 'edit'" do
+        get :edit, :id => @user
+        response.should redirect_to(signin_path)
+      end
+      
+      it "should deny access to 'update'" do
+        put :update, :id => @user, :user => {}
+        response.should redirect_to(signin_path)
       end
     end
   end

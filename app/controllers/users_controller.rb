@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   include ApplicationHelper
   
+  before_filter :authenticate, :only => [:show, :edit, :update]
+  
   def show
     @user = User.find(params[:id])
     @title = @user.name
@@ -43,6 +45,10 @@ class UsersController < ApplicationController
   
   def sign_up_title
     "Sign up"
+  end
+  
+  def authenticate
+    deny_access unless signed_in?
   end
 
 end
