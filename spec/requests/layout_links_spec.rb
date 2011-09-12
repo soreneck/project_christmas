@@ -34,6 +34,11 @@ describe "LayoutLinks" do
     response.should have_selector("title", :content => "Sign in")
   end
   
+  it "should not have a users list link" do
+    visit root_path
+    response.should_not have_selector("title", :content => "Users")
+  end
+  
   it "should not have a profile link" do
     visit root_path
     response.should_not have_selector("a", :content => "Profile")
@@ -61,6 +66,11 @@ describe "LayoutLinks" do
     it "should have a sign out link" do
       visit root_path
       response.should have_selector("a", :href => signout_path, :content => "Sign out")
+    end
+    
+    it "should ahve a users list link" do
+      visit root_path
+      response.should have_selector("a", :href => users_path, :content => "Users")
     end
     
     it "should have a profile link" do
