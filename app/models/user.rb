@@ -9,6 +9,7 @@
 #  updated_at         :datetime
 #  encrypted_password :string(255)
 #  salt               :string(255)
+#  admin              :boolean         default(FALSE)
 #
 
 # The attr_accessor :name, :email is all done by ActiveRecord by looking at the
